@@ -3,8 +3,6 @@ const colorPicker = document.querySelector('.input-color');
 const sizeButton = document.querySelector('.input-size');
 let gridSize = 16;
 let color = "#000000";
-
-
 createGrid();
 
 function createGrid(){
@@ -17,6 +15,14 @@ function createGrid(){
     div.classList.add('grid-item');
     div.style.minWidth = `${boxWidth}px`;
     div.style.minHeight = `${boxHeight}px`;
+    //div positioning
+    let x = 0;
+    let y = 0;
+    y = Math.floor(i/gridSize);
+    x = (i - (gridSize * y));
+    div.setAttribute('data-x',x);
+    div.setAttribute('data-y',y)
+    //
     let element = container.appendChild(div);
     element.addEventListener('mouseenter', boxHoverEnter);
     element.addEventListener('mouseleave', boxHoverLeave);
@@ -43,6 +49,7 @@ function boxClick(event) {
   let element = event.target;
   element.style.backgroundColor = color;
   element.id = color;
+  console.log(`${element.getAttribute('data-x')},${element.getAttribute('data-y')}`);
 }
 
 function boxErase(event) {
@@ -52,6 +59,7 @@ function boxErase(event) {
   element.id = "";
 }
 
+//inputs
 colorPicker.addEventListener('change', function(e){
   color = e.target.value;
 });
