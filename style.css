@@ -3,6 +3,26 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  color: white;
+  font-family: arial;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 250px;
+  padding: 20px;
+}
+
+.header h1 {
+  margin: 0px;
+}
+
+.header .input-size, .header .input-color {
+  margin: 10px;
 }
 
 .container {
@@ -16,9 +36,6 @@ body {
 
 .grid-item {
   box-sizing: inherit;
-  border: 1px solid #9c9c9c;
-}
-
-.grid-item:hover{
-  background-color: black;
+  border-top: 1px solid rgb(156, 156, 156);
+  border-left: 1px solid rgb(156, 156, 156);
 }
